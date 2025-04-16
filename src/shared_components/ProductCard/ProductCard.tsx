@@ -20,21 +20,78 @@ const Description = ({ children }: PropsWithChildren) => {
 
 const Rating = ({ rating }: { rating: number }) => {
   return (
-    <div className='flex items-center'>
-      {[1, 2, 3, 4, 5].map((value: number) => {
-        const color = value <= rating ? 'text-yellow-300' : 'text-gray-300';
-        return (
-          <svg
-            className={`w-6 h-6 ${color}`}
-            aria-hidden='true'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='currentColor'
-            viewBox='0 0 22 20'
-          >
-            <path d='M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z' />
-          </svg>
-        );
-      })}
+    <div className='rating rating-lg rating-half'>
+      <input type='radio' name='rating-11' className='rating-hidden' />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-1 bg-yellow-500'
+        aria-label='0.5 star'
+        checked={rating === 0.5}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-2 bg-yellow-500'
+        aria-label='1 star'
+        checked={rating === 1}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-1 bg-yellow-500'
+        aria-label='1.5 star'
+        checked={rating === 1.5}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-2 bg-yellow-500'
+        aria-label='2 star'
+        checked={rating === 2}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-1 bg-yellow-500'
+        aria-label='2.5 star'
+        checked={rating === 2.5}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-2 bg-yellow-500'
+        aria-label='3 star'
+        checked={rating === 3}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-1 bg-yellow-500'
+        aria-label='3.5 star'
+        checked={rating === 3.5}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-2 bg-yellow-500'
+        aria-label='4 star'
+        checked={rating === 4}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-1 bg-yellow-500'
+        aria-label='4.5 star'
+        checked={rating === 4.5}
+      />
+      <input
+        type='radio'
+        name='rating-11'
+        className='mask mask-star-2 mask-half-2 bg-yellow-500'
+        aria-label='5 star'
+        checked={rating === 5}
+      />
     </div>
   );
 };
