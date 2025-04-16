@@ -1,6 +1,6 @@
 import { ProductCard } from './shared_components/ProductCard/ProductCard';
 
-type Product = {
+export type Product = {
   image: string;
   title: string;
   desc: string;
@@ -18,14 +18,15 @@ function App() {
   return (
     <div className='p-5'>
       <ProductCard
-        image={<ProductCard.Image src={product.image} />}
+        product={product}
+        image={<ProductCard.Image />}
         content={
-          <div>
-            <ProductCard.Title>{product.title}</ProductCard.Title>
-            <ProductCard.Description>{product.desc}</ProductCard.Description>
-          </div>
+          <>
+            <ProductCard.Title />
+            <ProductCard.Description />
+          </>
         }
-        rating={<ProductCard.Rating rating={product.rating} />}
+        rating={<ProductCard.Rating />}
       />
     </div>
   );
