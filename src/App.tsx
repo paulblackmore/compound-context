@@ -14,16 +14,18 @@ const product: Product = {
 
 function App() {
   return (
-    <ProductCard
-      image={<ProductCard.Image src={product.image} />}
-      content={
-        <>
-          <ProductCard.Title>{product.title}</ProductCard.Title>
-          <ProductCard.Description>{product.desc}</ProductCard.Description>
-        </>
-      }
-      rating={<p>start rating</p>}
-    />
+    <div className='p-5'>
+      <ProductCard
+        image={<ProductCard.Image src={product.image} />}
+        content={
+          <>
+            <ProductCard.Title>{product.title}</ProductCard.Title>
+            <ProductCard.Description>{product.desc}</ProductCard.Description>
+          </>
+        }
+        rating={<ProductCard.Rating />}
+      />
+    </div>
   );
 }
 
