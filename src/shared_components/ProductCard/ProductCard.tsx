@@ -74,7 +74,7 @@ const ProductCard = ({ image, content, rating }: Props) => {
   return (
     <div className='h-auto w-sm bg-amber-50 text-black'>
       {image}
-      <div className='mt-3 p-4'>{content}</div>
+      <div className='mt-3 h-36 p-4'>{content}</div>
       <div className='h-12 flex justify-center mt-3'>{rating}</div>
     </div>
   );
