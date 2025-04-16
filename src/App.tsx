@@ -4,12 +4,14 @@ type Product = {
   image: string;
   title: string;
   desc: string;
+  rating: number;
 };
 
 const product: Product = {
   image: 'https://placehold.co/400x400',
-  title: 'Product Title',
+  title: 'Standard Chunk',
   desc: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+  rating: 2.5,
 };
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
             <ProductCard.Description>{product.desc}</ProductCard.Description>
           </>
         }
-        rating={<ProductCard.Rating />}
+        rating={<ProductCard.Rating rating={product.rating} />}
       />
     </div>
   );
