@@ -6,6 +6,8 @@ type Props = {
   rating?: React.ReactNode;
 };
 
+const STAR_VARIATIONS = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+
 const Image = ({ src }: { src: string }) => {
   return <img src={src} alt='Product Image' />;
 };
@@ -21,77 +23,19 @@ const Description = ({ children }: PropsWithChildren) => {
 const Rating = ({ rating }: { rating: number }) => {
   return (
     <div className='rating rating-lg rating-half'>
-      <input type='radio' name='rating-11' className='rating-hidden' />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-1 bg-yellow-500'
-        aria-label='0.5 star'
-        checked={rating === 0.5}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-2 bg-yellow-500'
-        aria-label='1 star'
-        checked={rating === 1}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-1 bg-yellow-500'
-        aria-label='1.5 star'
-        checked={rating === 1.5}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-2 bg-yellow-500'
-        aria-label='2 star'
-        checked={rating === 2}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-1 bg-yellow-500'
-        aria-label='2.5 star'
-        checked={rating === 2.5}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-2 bg-yellow-500'
-        aria-label='3 star'
-        checked={rating === 3}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-1 bg-yellow-500'
-        aria-label='3.5 star'
-        checked={rating === 3.5}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-2 bg-yellow-500'
-        aria-label='4 star'
-        checked={rating === 4}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-1 bg-yellow-500'
-        aria-label='4.5 star'
-        checked={rating === 4.5}
-      />
-      <input
-        type='radio'
-        name='rating-11'
-        className='mask mask-star-2 mask-half-2 bg-yellow-500'
-        aria-label='5 star'
-        checked={rating === 5}
-      />
+      <input type='radio' className='rating-hidden' />
+      {STAR_VARIATIONS.map((value: number) => {
+        const mask = Number.isInteger(value) ? 'mask-half-2' : 'mask-half-1';
+        return (
+          <input
+            key={value}
+            type='radio'
+            className={`mask mask-star-2 ${mask} bg-yellow-500`}
+            aria-label={`${value} star`}
+            defaultChecked={rating === value}
+          />
+        );
+      })}
     </div>
   );
 };
